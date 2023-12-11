@@ -1,7 +1,8 @@
 // TokenPage.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { abi, contractAddress } from "./constants.js";
+import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { abi, contractAddress } from "./fakeBaycContract.js";
 import axios from 'axios'; // You may need to install axios using npm install axios
 import Web3 from 'web3';
 
@@ -43,9 +44,9 @@ function TokenPage() {
                 // console.log(metadata)
                 const attributes = data.attributes;
                 // console.log(attributes)
-                
+
                 setTokenData(data);
-                
+
                 const cid = data.image.replace('ipfs://', '');
                 const ipfsGatewayURL = `https://ipfs.io/ipfs/${cid}`;
                 setImageURL(ipfsGatewayURL);
@@ -70,7 +71,7 @@ function TokenPage() {
         <>
             <div>
                 <h1>Token {tokenId}</h1>
-            <img src={imageURL} alt={`Token ${tokenId}`} />
+                <img src={imageURL} alt={`Token ${tokenId}`} style={{ maxWidth: '400px', maxHeight: '400px' }} />
                 <div>
                     {tokenData.attributes.map((attribute, index) => (
                         <div key={index}>
@@ -78,6 +79,9 @@ function TokenPage() {
                         </div>
                     ))}
                 </div>
+            </div>
+            <div>
+                <Link to="/">Page Principale</Link>
             </div>
         </>
     );
