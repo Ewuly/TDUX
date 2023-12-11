@@ -85,7 +85,7 @@ function chainInfo() {
                 <h1>Chain Info</h1>
             </div>
             <div>
-                <button onClick={connect}>Claim NFT</button>
+                <button onClick={connect}>Connect</button>
             </div>
             <div>
                 <button onClick={afficheData}>Affiche data</button>
